@@ -1,0 +1,62 @@
+.setUpTitle {
+    font-size: 30px;
+    text-decoration: underline;
+    margin: 10px 0px 10px 10px;
+}
+
+.courseSelect, .teeSelect, .holeSelect {
+    display: inline-block;
+    height: 15px;
+    width: calc(100% - 70px);
+    max-width: 500px;
+    margin: 2px 0px 40px 10px;
+}
+
+
+.addPlayerInput {
+    display: inline-block;
+    height: 15px;
+    width: calc(100% - 70px);
+    margin: 2px 0px 0px 10px;
+}
+.addPlayerButton {
+    position: relative;
+    left: 10px;
+    bottom: 5px;
+}
+
+
+.playerAddedArea {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .playerAddedLabel {
+        height: 1px;
+        margin: 0px 10px 55px;
+
+        width: calc(100% - 70px);
+    }
+    .playerAddedDeleteButton {
+        font-size: 35px;
+        position: relative;
+        left: 1px;
+    }
+}
+
+.setupSubmitArea {
+    position: absolute;
+    bottom: 0px;
+
+    display: flex;
+    flex-direction: row-reverse;
+
+    height: 40px;
+    width: calc(100% - 5px);
+
+    .setupSubmitCounter {
+        font-size: 15px;
+        font-weight: 500;
+        margin: 10px;
+    }
+}

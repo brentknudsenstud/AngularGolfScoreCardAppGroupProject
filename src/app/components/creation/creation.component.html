@@ -1,0 +1,61 @@
+<h1 class="setUpTitle">Set Up:</h1>
+
+<mat-form-field class="courseSelect" appearance="fill" *ngIf="courseList">
+  <mat-label>Course Select</mat-label>
+  <mat-select [(value)]="courseSelect">
+    <mat-option *ngFor="let course of courseList.courses" value="{{course.name}}" (click)="courseChanging(course.id)">
+      {{course.name}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+  
+<mat-form-field class="teeSelect" appearance="fill">
+  <mat-label>TeeBox Select</mat-label>
+  <mat-select [(value)]="teeSelect">
+    <mat-option *ngFor="let tee of teeboxArray" [value]="tee">
+      {{tee}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+{{teeSelect}}
+<mat-form-field class="holeSelect" appearance="fill">
+  <mat-label>Hole Select</mat-label>
+  <mat-select [(value)]="holeSelect">
+    <mat-option value="first">
+      1-9
+    </mat-option>
+    <mat-option value="last">
+      10-18
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<hr>
+
+<mat-form-field class="addPlayerInput" appearance="fill">
+  <mat-label>Add Player</mat-label>
+  <input matInput placeholder="player" [(ngModel)]="newPlayerValue">
+</mat-form-field>
+
+<button mat-mini-fab class="addPlayerButton" color="primary" (click)="addNewPlayer()" disabled='{{playerList.includes(newPlayerValue) || newPlayerValue == "" || playerList.length == 4}}'>
+  <mat-icon>add</mat-icon>
+</button>
+
+<hr>
+<div class="playerAddedArea">
+  <div *ngFor="let player of playerList">
+    <mat-form-field class="playerAddedLabel" appearance="fill">
+        <input class="unselectable" type="text" matInput [value]="player" readonly>
+    </mat-form-field>
+    <button class="playerAddedDeleteButton" mat-icon-button (click)="playerList.splice(playerList.indexOf(player), 1)">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </div>
+</div>
+
+<div class="setupSubmitArea">
+    <span>
+      <span class="setupSubmitCounter">{{playerList.length}}/4</span>
+      <button (click)="setupSubmit()" class="setupSubmitButton" mat-raised-button color="primary">Submit</button>
+    </span>
+</div>

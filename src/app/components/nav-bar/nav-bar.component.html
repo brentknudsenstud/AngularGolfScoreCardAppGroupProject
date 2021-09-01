@@ -1,0 +1,11 @@
+<mat-toolbar class="navBody">
+  <span class="nav-title">Golf App <span class="left-icon">&#9732;</span></span>
+  <span class="example-spacer"></span>
+
+
+  <button mat-button class="right-icon" [matMenuTriggerFor]="menu">&#9776;</button>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item>Item 1</button>
+        <button mat-menu-item>Item 2</button>
+    </mat-menu>
+</mat-toolbar>
