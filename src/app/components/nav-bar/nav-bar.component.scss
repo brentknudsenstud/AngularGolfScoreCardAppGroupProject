@@ -3,6 +3,7 @@
 .mat-toolbar {
     color: white;
     height: 40px;
+    width: 655px;
     background-color: $secondary;
 
     .example-spacer {
@@ -22,5 +23,12 @@
     .left-icon {
         font-size: 18px;
         margin: 0px 0px 0px 0px;
+    }
+}
+
+@media screen and (max-width: 655px) {
+    .mat-toolbar {
+        width: 100%;
+        max-width: 655px;
     }
 }
