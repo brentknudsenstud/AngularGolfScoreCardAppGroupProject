@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { TableDataService } from 'src/app/services/table-data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-creation',
@@ -16,11 +18,13 @@ export class CreationComponent implements OnInit {
 
   gameCourse = undefined;
 
-  playerList = [];
+  playerList: string[] = [];
   newPlayerValue = "";
 
   constructor(
     private http: HttpClient,
+    private tableData: TableDataService,
+    private router: Router,
   ) {}
 
   ngOnInit() {
@@ -34,6 +38,7 @@ export class CreationComponent implements OnInit {
 
     this.http.get(`https://golf-courses-api.herokuapp.com/courses/${id}`).subscribe(payload => {
       this.gameCourse = payload;
+      this.tableData.apiData = payload;
       for (let tee in this.gameCourse.data.holes[0].teeBoxes) {
         if (this.gameCourse.data.holes[0].teeBoxes[tee].teeType != "auto change location") {
           this.teeboxArray.push(this.gameCourse.data.holes[0].teeBoxes[tee].teeType);
@@ -50,16 +55,11 @@ export class CreationComponent implements OnInit {
 
   //SUBMIT-INFO==================================================================================================
   submitSetupInfo() {
-    console.log("course: ", this.gameCourse);
-    console.log("tee: ", this.teeSelect);
-    console.log("holes: ", this.holeSelect);
+    const holesData = this.holeSelect == "first" ? ['1','2','3','4','5','6','7','8','9'] : ['10','11','12','13','14','15','16','17','18'];
+    const teeIndex: number = this.teeboxArray.indexOf(this.teeSelect);
+    
+    this.tableData.setCourseData(holesData, teeIndex, this.playerList)
+    this.router.navigate(['/game']);
   }
-
-  setupSubmit() {
-    console.log("hi");
-  }
-
-
-
 
 }

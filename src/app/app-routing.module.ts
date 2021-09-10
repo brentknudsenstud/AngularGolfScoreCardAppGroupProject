@@ -7,7 +7,7 @@ import { LoadInComponent } from './components/load-in.PAGE/load-in.component';
 
 
 const routes: Routes = [
-  {path:'', redirectTo:'/setup', pathMatch:'full'},
+  {path:'', redirectTo:'/loadin', pathMatch:'full'},
   {path:'loadin', component: LoadInComponent},
   {path:'setup', component: SetupComponent},
   {path:'game', component: GameComponent},

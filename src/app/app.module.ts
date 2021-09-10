@@ -12,6 +12,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http'
 
 import { MaterialModule } from './modules/material.module';
+import { FirebaseService } from './services/firebase.service';
+import { TableDataService } from './services/table-data.service';
 
 import { SetupComponent } from './components/setup.PAGE/setup.component';
 import { GameComponent } from './components/game.PAGE/game.component';
@@ -42,7 +44,7 @@ import { CreationComponent } from './components/creation/creation.component'
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
   ],
-  providers: [],
+  providers: [FirebaseService, TableDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

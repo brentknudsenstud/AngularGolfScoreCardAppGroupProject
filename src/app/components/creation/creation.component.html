@@ -1,5 +1,6 @@
 <h1 class="setUpTitle">Set Up:</h1>
 
+<!--COURSE SELECT---------------------------------------------------------->
 <mat-form-field class="courseSelect" appearance="fill" *ngIf="courseList">
   <mat-label>Course Select</mat-label>
   <mat-select [(value)]="courseSelect">
@@ -9,6 +10,8 @@
   </mat-select>
 </mat-form-field>
   
+
+<!--TEE SELECT------------------------------------------------------------->
 <mat-form-field class="teeSelect" appearance="fill">
   <mat-label>TeeBox Select</mat-label>
   <mat-select [(value)]="teeSelect">
@@ -17,7 +20,8 @@
     </mat-option>
   </mat-select>
 </mat-form-field>
-{{teeSelect}}
+
+<!--HOLE SELECT------------------------------------------------------------>
 <mat-form-field class="holeSelect" appearance="fill">
   <mat-label>Hole Select</mat-label>
   <mat-select [(value)]="holeSelect">
@@ -32,6 +36,7 @@
 
 <hr>
 
+<!--ADD PLAYER AREA-------------------------------------------------------->
 <mat-form-field class="addPlayerInput" appearance="fill">
   <mat-label>Add Player</mat-label>
   <input matInput placeholder="player" [(ngModel)]="newPlayerValue">
@@ -42,6 +47,8 @@
 </button>
 
 <hr>
+
+<!--LISTED PLAYERs AREA---------------------------------------------------->
 <div class="playerAddedArea">
   <div *ngFor="let player of playerList">
     <mat-form-field class="playerAddedLabel" appearance="fill">
@@ -53,9 +60,10 @@
   </div>
 </div>
 
+<!--SUBMIT----------------------------------------------------------------->
 <div class="setupSubmitArea">
     <span>
       <span class="setupSubmitCounter">{{playerList.length}}/4</span>
-      <button (click)="setupSubmit()" class="setupSubmitButton" mat-raised-button color="primary">Submit</button>
+      <button (click)="submitSetupInfo()" class="setupSubmitButton" mat-raised-button color="primary">Submit</button>
     </span>
 </div>
