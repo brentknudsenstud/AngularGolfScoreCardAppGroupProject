@@ -13,6 +13,8 @@ export class GameComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    console.log(this.gameData.course);
+    console.log(this.gameData.apiData);
   }
 
 }
