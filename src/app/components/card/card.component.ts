@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { TableDataService } from 'src/app/services/table-data.service';
 
 @Component({
@@ -10,20 +10,15 @@ import { TableDataService } from 'src/app/services/table-data.service';
 
 export class CardComponent implements OnInit {
   carddata = [
-//     {holename: "hole1",// this.tabledata.course.holes.data[0],
-//     par: 4,
-//     yardage: 360,
-//     handicap: 10,
-//     imagenumber: 1
-
-// }
+  
   ]
-
+  @Input()
+  courseId;
   constructor(
-    private tabledata: TableDataService
+    private tableDataService: TableDataService
     ) 
   {
-    this.carddata = tabledata.course.holes.data
+    this.carddata = tableDataService.getCourseData(this.courseId)
    }
 
   ngOnInit(): void {
