@@ -16,13 +16,22 @@ export class TableDataService {
     private db: FirebaseService,
     private route: Router,
   ) { }
-  
+
+  getCourseData(courseId: string) {
+    return [
+          {holename: "hole1",// this.tabledata.course.holes.data[0],
+        par: 4,
+        yardage: 360,
+        handicap: 10,
+        imagenumber: 1}]
+  }
+
   setCourseData(holesArray: string[], teeIndex: number, playerList: string[]) {
     //DECLARING DATA--------------------------------------------------------------------------------------------------
-    let holes:RowData = {data: holesArray, total: "total"};
-    let yards:RowData = {data: [], total: ""};
-    let pars:RowData = {data: [], total: ""};
-    let handicaps:RowData = {data: [], total: ""};
+    let holes: RowData = { data: holesArray, total: "total" };
+    let yards: RowData = { data: [], total: "" };
+    let pars: RowData = { data: [], total: "" };
+    let handicaps: RowData = { data: [], total: "" };
 
     this.course = {
       holes: holes,
@@ -35,7 +44,7 @@ export class TableDataService {
     let players: RowData[] = [];
 
     //YARDS PARS HANDICAPS SETUP--------------------------------------------------------------------------------------
-    for(let i = 0; i < holesArray.length; i++) {   
+    for (let i = 0; i < holesArray.length; i++) {
       this.course.yards.data.push(this.apiData.data.holes[i].teeBoxes[teeIndex].yards);
       this.course.pars.data.push(this.apiData.data.holes[i].teeBoxes[teeIndex].par);
       this.course.handicaps.data.push(this.apiData.data.holes[i].teeBoxes[teeIndex].hcp);
@@ -44,9 +53,9 @@ export class TableDataService {
     this.course.yards.total = this.rowTotal(this.course.yards.data);
     this.course.pars.total = this.rowTotal(this.course.pars.data);
     this.course.handicaps.total = this.rowTotal(this.course.handicaps.data);
-    
+
     //PLAYER DATA SETUP-----------------------------------------------------------------------------------------------
-    for(let p = 0; p < playerList.length; p++) {
+    for (let p = 0; p < playerList.length; p++) {
       let newPlayer: RowData;
       newPlayer = {
         name: playerList[p],
@@ -65,7 +74,7 @@ export class TableDataService {
   //TOTALS ROW DATA-------------------------------------------------------------------------------------------------
   rowTotal(data: string[]): string {
     let addUpTotal: number = 0;
-    for(let d = 0; d < data.length; d++) {
+    for (let d = 0; d < data.length; d++) {
       let numberData = data[d] == "" ? 0 : Number(data[d]);
       addUpTotal = addUpTotal + numberData;
     }

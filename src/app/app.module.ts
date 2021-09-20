@@ -20,7 +20,12 @@ import { GameComponent } from './components/game.PAGE/game.component';
 import { PageNotFoundComponent } from './components/page-not-found.PAGE/page-not-found.component';
 import { LoadInComponent } from './components/load-in.PAGE/load-in.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
-import { CreationComponent } from './components/creation/creation.component'
+import { CreationComponent } from './components/creation/creation.component';
+import { CardComponent } from './components/card/card.component'; 
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatCardModule } from '@angular/material/card';
+import {  }
 
 
 
@@ -33,6 +38,10 @@ import { CreationComponent } from './components/creation/creation.component'
     LoadInComponent,
     NavBarComponent,
     CreationComponent,
+    CardComponent,
+    MatToolbarModule,
+    MatIconModule,
+    MatCardModule,
   ],
   imports: [
     AppRoutingModule,
