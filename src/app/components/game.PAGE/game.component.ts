@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { FirebaseService } from 'src/app/services/firebase.service';
 import { TableDataService } from 'src/app/services/table-data.service';
 
 @Component({
@@ -9,13 +11,15 @@ import { TableDataService } from 'src/app/services/table-data.service';
 export class GameComponent implements OnInit {
 
   constructor(
-    private gameData: TableDataService,
+    private td: TableDataService,
+    private fb: FirebaseService,
+    private route: Router,
   ) { }
 
   ngOnInit(): void {
-    console.log(this.gameData.course);
-    console.log(this.gameData.apiData);
-    console.log("hello git pull")
+    if (this.td.loadPass === false) {
+      this.route.navigate(['/loadin'])
+    }
   }
 
 }

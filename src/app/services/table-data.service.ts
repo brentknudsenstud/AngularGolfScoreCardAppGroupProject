@@ -2,6 +2,7 @@ import { ComponentFactoryResolver, Injectable } from '@angular/core';
 import { TableData } from '../interfaces/table-data';
 import { RowData } from '../interfaces/row-data';
 import { FirebaseService } from './firebase.service';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -9,9 +10,11 @@ import { FirebaseService } from './firebase.service';
 export class TableDataService {
   course: TableData;
   apiData: any;
+  loadPass: boolean = false;
 
   constructor(
     private db: FirebaseService,
+    private route: Router,
   ) { }
   
   setCourseData(holesArray: string[], teeIndex: number, playerList: string[]) {
@@ -69,4 +72,27 @@ export class TableDataService {
     let addUpFinal: string = addUpTotal == 0 ? "" : String(addUpTotal);
     return addUpFinal;
   }
+
+  navigation() {
+    let failState = 0
+    let getFirebaseData = setInterval(() => {
+      failState = failState + 1;
+      if (this.db.session.gameSet === true) {
+        this.course = this.db.session.course;
+        this.apiData = this.db.session.apiData;
+         this.route.navigate(['/game']);
+         clearInterval(getFirebaseData);
+      }
+      if (this.db.session.gameSet === false) {
+        this.route.navigate(['/setup']);
+        clearInterval(getFirebaseData);
+      }
+      if (failState > 50) {
+        alert("404 Firebase Not Reached")
+        clearInterval(getFirebaseData);
+      }
+    }, 100);
+  }
+
+
 }

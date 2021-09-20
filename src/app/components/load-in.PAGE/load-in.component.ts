@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FirebaseService } from 'src/app/services/firebase.service';
+import { TableDataService } from 'src/app/services/table-data.service';
 
 @Component({
   selector: 'app-load-in',
@@ -10,31 +11,15 @@ import { FirebaseService } from 'src/app/services/firebase.service';
 export class LoadInComponent implements OnInit {
 
   constructor(
-    private db: FirebaseService,
-    private router: Router,
+    private td: TableDataService,
+    private fb: FirebaseService,
     ) { }
 
   ngOnInit(): void {
-    this.navigation()
-  }
-
-  navigation() {
-    let failState = 0
-    let getFirebaseData = setInterval(() => {
-      failState = failState + 1;
-      if (this.db.session.gameSet === true) {
-         this.router.navigate(['/game']);
-         clearInterval(getFirebaseData);
-      }
-      if (this.db.session.gameSet === false) {
-        this.router.navigate(['/setup']);
-        clearInterval(getFirebaseData);
-      }
-      if (failState > 50) {
-        alert("404 Firebase Not Reached")
-        clearInterval(getFirebaseData);
-      }
-    }, 100);
+    this.td.loadPass = true;
+    this.td.navigation();
+    this.td.course = this.fb.session.course;
+    this.td.apiData = this.fb.session.apiData;
   }
 
 }
