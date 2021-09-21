@@ -1,17 +1,21 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { TableDataService } from './table-data.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FirebaseService {
-  session: any = {gameSet: undefined}
+  session: any = {gameSet: "loading"};
   storageRef: any;
 
   constructor(
     private db: AngularFirestore,
     ) {
-    this.db.doc('session/Bims3nptXQUcCik7imE4').valueChanges().subscribe(x => this.session = x);
+      this.session = {gameSet: "loading"};
+      this.db.doc('session/Bims3nptXQUcCik7imE4').valueChanges().subscribe(x => {
+        this.session = x;
+      });
   }
 
   saveData(apiData, courseData) {
@@ -20,6 +24,10 @@ export class FirebaseService {
       apiData: apiData,
       course: courseData
     });
+  }
+
+  getData() {
+    this.db.doc('session/Bims3nptXQUcCik7imE4').valueChanges().subscribe(x => this.session = x);
   }
 
   clearData() {

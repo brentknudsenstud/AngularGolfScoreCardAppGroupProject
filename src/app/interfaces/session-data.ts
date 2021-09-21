@@ -1,7 +1,7 @@
 import { TableData } from "./table-data";
 
 export interface SessionData {
-    gameSet: boolean;
-    apiData: any;
-    course: TableData;
+    gameSet: string;
+    apiData?: any;
+    course?: TableData;
 }
