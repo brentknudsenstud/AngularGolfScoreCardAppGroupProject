@@ -21,7 +21,6 @@ import { PageNotFoundComponent } from './components/page-not-found.PAGE/page-not
 import { LoadInComponent } from './components/load-in.PAGE/load-in.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { CreationComponent } from './components/creation/creation.component';
-import { CardComponent } from './components/card/card.component';
 
 
 
@@ -34,7 +33,6 @@ import { CardComponent } from './components/card/card.component';
     LoadInComponent,
     NavBarComponent,
     CreationComponent,
-    CardComponent,
   ],
   imports: [
     AppRoutingModule,

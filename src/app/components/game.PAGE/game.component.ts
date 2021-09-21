@@ -19,7 +19,7 @@ export class GameComponent implements OnInit {
     "players": [
         { "name": "", "data": ["","","","","","","","","","","",""], "total": "" },
     ]
-}
+  }
 
   constructor(
     public td: TableDataService,
