@@ -1,0 +1,35 @@
+<div *ngIf="dataGot != false">
+    <div class="tally">
+        <div class="flexAround topScore">
+            <span *ngFor="let player of course.players">
+                <span>{{player.name}}: </span>
+                <input class="totalInputs" type="text" [value]="noZero(addScoreData(player))">
+            </span>
+        </div>
+        <div class="flexAround bottomScore">
+            <span>Yards: {{course.yards.total}}</span>
+            <span>Pars: {{course.pars.total}}</span>
+            <span>Handicaps: {{course.handicaps.total}}</span>
+        </div>
+    </div>
+
+
+
+    <div class="card-container">
+    <mat-card class="example-card" *ngFor="let hole of course.holes.data">
+        <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>Hole: {{hole}}</mat-card-title>
+        <mat-card-subtitle>Par: {{course.pars.data[course.holes.data.indexOf(hole)]}}</mat-card-subtitle>
+        <mat-card-subtitle>Yardage: {{course.yards.data[course.holes.data.indexOf(hole)]}}</mat-card-subtitle>
+        <mat-card-subtitle>Handicap: {{course.handicaps.data[course.holes.data.indexOf(hole)]}}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src="/assets/golfpic{{images[course.holes.data.indexOf(hole)]}}.png">
+        <mat-card-content>
+        <div *ngFor="let player of course.players">{{player.name}}<br>
+            <input type="number" [(ngModel)]="player.data[course.holes.data.indexOf(hole)]">
+        </div>
+        </mat-card-content>
+    </mat-card>
+    </div>
+</div>
