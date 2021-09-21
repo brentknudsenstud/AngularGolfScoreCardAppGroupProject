@@ -12,7 +12,6 @@ export class GameComponent implements OnInit {
 
   constructor(
     private td: TableDataService,
-    private fb: FirebaseService,
     private route: Router,
   ) { }
 
