@@ -1,0 +1,55 @@
+@import '../../styles/base';
+
+.card-container{
+    margin: 8px;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+
+    max-width: 620px;
+    height: calc(100vh - 115px);
+    overflow-y: scroll;
+
+    .example-card {
+        width: 200px;
+      }
+      
+      .example-header-image {
+        background-image: url('../../../assets/golfballtee.png');
+        background-size: cover;
+        box-shadow: 0 0 16px #607d3d;
+      }
+
+      img {margin-bottom: 0px;}
+      mat-card {
+        box-shadow: 0 0 10px #000000;
+        opacity: 83%;
+      }
+      mat-card-title, mat-card-content, mat-card-subtitle {
+        margin: 0px;
+      }
+      mat-card, mat-card-header, mat-card-title, mat-card-subtitle {
+        margin: 5px;
+        background-color: white;
+        color: #5f8210;
+        text-shadow: 0 0 8px #607d3d;
+      }
+
+}
+
+.tally {
+    color: white;
+    background-color: #7C9940;
+    border-radius: 0px 0px 10px 10px;
+
+    .flexAround {
+        display: flex;
+        justify-content: space-around;
+    }
+    .totalInputs {
+        width: 20px;
+    }
+    .topScore {
+        border-bottom: 1px solid white;
+    }
+}

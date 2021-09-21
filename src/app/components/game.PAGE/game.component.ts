@@ -19,7 +19,7 @@ export class GameComponent implements OnInit {
     "players": [
         { "name": "", "data": ["","","","","","","","","","","",""], "total": "" },
     ]
-  }
+}
 
   constructor(
     public td: TableDataService,
@@ -33,6 +33,28 @@ export class GameComponent implements OnInit {
     else {
       this.course = this.td.course;
       this.dataGot = true;
+    }
+  }
+
+  addScoreData(player: any) {
+    let total: number = 0;
+    for (let i = 0; i < player.data.length; i++){
+      if(player.data[i] === ""){
+        
+      } else {
+        let current = Number(player.data[i]);
+        total = total + current;
+      }
+    }
+    let totalString = String(total);
+    return totalString;
+  }
+
+  noZero(total: any) {
+    if(this.dataGot === true) {
+      this.td.course = this.course;
+      if(total == 0) { return ""; }
+      else { return total }
     }
   }
   
