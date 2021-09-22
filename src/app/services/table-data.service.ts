@@ -11,20 +11,12 @@ export class TableDataService {
   course: TableData;
   apiData: any;
   loadPass: boolean = false;
+  allPlayers: string[];
 
   constructor(
     private db: FirebaseService,
     private route: Router,
   ) { }
-
-  getCourseData(courseId: string) {
-    return [
-          {holename: "hole1",// this.tabledata.course.holes.data[0],
-        par: 4,
-        yardage: 360,
-        handicap: 10,
-        imagenumber: 1}]
-  }
 
   setCourseData(holesArray: string[], teeIndex: number, playerList: string[]) {
     //DECLARING DATA--------------------------------------------------------------------------------------------------
@@ -65,6 +57,7 @@ export class TableDataService {
       newPlayer.total = this.rowTotal(newPlayer.data);
       this.course.players.push(newPlayer);
     }
+    this.allPlayers = playerList;
 
     //UPLOAD DATA TO FIREBASE-----------------------------------------------------------------------------------------
     this.db.saveData(this.apiData, this.course);

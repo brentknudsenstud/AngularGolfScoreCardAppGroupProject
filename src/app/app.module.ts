@@ -21,6 +21,7 @@ import { PageNotFoundComponent } from './components/page-not-found.PAGE/page-not
 import { LoadInComponent } from './components/load-in.PAGE/load-in.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { CreationComponent } from './components/creation/creation.component';
+import { ShorterPipe } from './pipes/shorter.pipe';
 
 
 
@@ -33,6 +34,7 @@ import { CreationComponent } from './components/creation/creation.component';
     LoadInComponent,
     NavBarComponent,
     CreationComponent,
+    ShorterPipe,
   ],
   imports: [
     AppRoutingModule,

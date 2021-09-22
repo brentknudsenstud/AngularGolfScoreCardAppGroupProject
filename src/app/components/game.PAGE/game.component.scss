@@ -3,6 +3,7 @@
 .card-container{
     margin: 8px;
     display: flex;
+    justify-content: space-evenly;
     flex-flow: row wrap;
     align-items: center;
 
@@ -44,7 +45,8 @@
 
     .flexAround {
         display: flex;
-        justify-content: space-around;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
     }
     .totalInputs {
         width: 20px;
