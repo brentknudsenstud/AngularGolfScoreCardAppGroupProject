@@ -2,7 +2,7 @@
     <div class="tally">
         <div class="flexAround topScore">
             <span *ngFor="let player of course.players">
-                <span>{{player.name}}: </span>
+                <span>{{player.name | shorter}}: </span>
                 <input class="totalInputs" type="text" [value]="noZero(addScoreData(player))">
             </span>
         </div>
@@ -12,8 +12,6 @@
             <span>Handicaps: {{course.handicaps.total}}</span>
         </div>
     </div>
-
-
 
     <div class="card-container">
     <mat-card class="example-card" *ngFor="let hole of course.holes.data">
