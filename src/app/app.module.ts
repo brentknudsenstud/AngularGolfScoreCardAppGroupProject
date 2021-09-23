@@ -22,6 +22,7 @@ import { LoadInComponent } from './components/load-in.PAGE/load-in.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { CreationComponent } from './components/creation/creation.component';
 import { ShorterPipe } from './pipes/shorter.pipe';
+import { PopUpComponent } from './components/pop-up/pop-up.component';
 
 
 
@@ -35,6 +36,7 @@ import { ShorterPipe } from './pipes/shorter.pipe';
     NavBarComponent,
     CreationComponent,
     ShorterPipe,
+    PopUpComponent,
   ],
   imports: [
     AppRoutingModule,
