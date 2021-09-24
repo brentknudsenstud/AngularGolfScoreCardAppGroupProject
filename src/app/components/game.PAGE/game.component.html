@@ -1,3 +1,21 @@
+<div id="popUp" class="popup-background noDisplay">
+    <div class="popUp-container">
+        <div style="text-align: center; text-decoration: underline;">Game End:</div>
+        <hr>
+        <div class="popUpMessage">
+            <div class="eachMessage" *ngFor="let message of td.gameEndMessages">
+                <div>{{message}}</div>
+                <hr>
+            </div>
+        </div>
+        <div class="popUpBtns">
+            <button class="closeBtn" (click)="closePopup()" mat-raised-button color="primary">Back to Card</button>
+            <button (click)="resetGame()" mat-raised-button color="primary">New Game</button>
+        </div>
+    </div>
+</div>
+
+
 <div *ngIf="dataGot != false">
     <div class="tally">
         <div class="flexAround topScore">
@@ -30,4 +48,6 @@
         </mat-card-content>
     </mat-card>
     </div>
+
+    <button class="endGame" (click)="endGame()">End</button>
 </div>

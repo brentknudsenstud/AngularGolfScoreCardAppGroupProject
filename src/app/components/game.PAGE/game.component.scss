@@ -55,3 +55,63 @@
         border-bottom: 1px solid white;
     }
 }
+
+.endGame {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+
+  width: 38px;
+  height: 38px;
+
+  color: white;
+  background-color: $secondary;
+  border: none;
+  border-radius: 25px;
+  box-shadow: 0px 0px 5px $secondary;
+}
+
+.noDisplay { display: none; }
+.popup-background {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 10;
+  background-color: #1d1d1d8f;
+  width: 100vw;
+  height: 100vh;
+
+  .popUp-container {
+      position: relative;
+      width: 240px;
+      height: 300px;
+
+      padding: 5px;
+
+      background-color: white;
+      border-radius: 10px;
+      border: 1px solid #3a3a3a;
+
+      .popUpMessage {
+        font-size: 12px;
+
+        .eachMessage {
+          margin-bottom: 5px;
+        }
+      }
+
+      .popUpBtns {
+        position: absolute;
+        bottom: 10px;
+        left: 13px;
+
+        .closeBtn {
+          margin-right: 10px
+        }
+      }
+  }
+}
+.noDisplay { display: none; }

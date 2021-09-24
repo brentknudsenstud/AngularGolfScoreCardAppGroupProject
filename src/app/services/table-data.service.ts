@@ -12,6 +12,7 @@ export class TableDataService {
   apiData: any;
   loadPass: boolean = false;
   allPlayers: string[];
+  gameEndMessages: string[] = [];
 
   constructor(
     private db: FirebaseService,
@@ -19,6 +20,7 @@ export class TableDataService {
   ) { }
 
   setCourseData(holesArray: string[], teeIndex: number, playerList: string[]) {
+    this.gameEndMessages = [];
     //DECLARING DATA--------------------------------------------------------------------------------------------------
     let holes: RowData = { data: holesArray, total: "total" };
     let yards: RowData = { data: [], total: "" };
@@ -51,7 +53,7 @@ export class TableDataService {
       let newPlayer: RowData;
       newPlayer = {
         name: playerList[p],
-        data: ["", "", "", "", "", "", "", "", "", "", "", ""],
+        data: ["", "", "", "", "", "", "", "", ""],
         total: ""
       }
       newPlayer.total = this.rowTotal(newPlayer.data);
@@ -64,7 +66,7 @@ export class TableDataService {
   }
 
 
-  //TOTALS ROW DATA-------------------------------------------------------------------------------------------------
+  //TOTALS ROW DATA---------------------------------------------------------------------------------------------------
   rowTotal(data: string[]): string {
     let addUpTotal: number = 0;
     for (let d = 0; d < data.length; d++) {
@@ -96,5 +98,7 @@ export class TableDataService {
     }, 100);
   }
 
-
+  totalToPart(total) {
+    return String(Math.abs((Number(total) - Number(this.course.pars.total))));
+  }
 }
