@@ -5,12 +5,12 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: "AIzaSyCZGTtL34-Ham7ul-cYwlmXxYOmP-Oh-_s",
-    authDomain: "golf-app-pdg.firebaseapp.com",
-    projectId: "golf-app-pdg",
-    storageBucket: "golf-app-pdg.appspot.com",
-    messagingSenderId: "19539793619",
-    appId: "1:19539793619:web:e0819ebf55c85be73de626"
+    apiKey: "AIzaSyCiAEyoxIQ5L3Oncil6NSTdCG4Yv-ojYk0",
+    authDomain: "angulargolfappbrent.firebaseapp.com",
+    projectId: "angulargolfappbrent",
+    storageBucket: "angulargolfappbrent.appspot.com",
+    messagingSenderId: "441981850242",
+    appId: "1:441981850242:web:156a7eb96e1d20364d5a9b"
   }
 };
 

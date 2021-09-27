@@ -13,13 +13,13 @@ export class FirebaseService {
     private db: AngularFirestore,
     ) {
       this.session = {gameSet: "loading"};
-      this.db.doc('session/Bims3nptXQUcCik7imE4').valueChanges().subscribe(x => {
+      this.db.doc('session/nqdTt9oadCIanSx27xca').valueChanges().subscribe(x => {
         this.session = x;
       });
   }
 
   saveData(apiData, courseData) {
-    this.db.doc('session/Bims3nptXQUcCik7imE4').set({
+    this.db.doc('session/nqdTt9oadCIanSx27xca').set({
       gameSet: true,
       apiData: apiData,
       course: courseData
@@ -27,11 +27,11 @@ export class FirebaseService {
   }
 
   getData() {
-    this.db.doc('session/Bims3nptXQUcCik7imE4').valueChanges().subscribe(x => this.session = x);
+    this.db.doc('session/nqdTt9oadCIanSx27xca').valueChanges().subscribe(x => this.session = x);
   }
 
   clearData() {
-    this.db.doc('session/Bims3nptXQUcCik7imE4').set({
+    this.db.doc('session/nqdTt9oadCIanSx27xca').set({
       gameSet: false,
       apiData: {},
       course: {}
